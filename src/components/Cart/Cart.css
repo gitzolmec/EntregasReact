@@ -1,0 +1,52 @@
+.cart-container {
+    background-color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    border: 3px solid;
+    border-color: rgb(31, 31, 31);
+    
+  }
+  .cart-hidden{
+    display: none
+  }
+
+  .cartImg{
+    margin:auto;
+    width:100px;
+     }
+  
+  .orden{
+    display: flex
+  }
+
+  .title{
+    text-align: center;
+  
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 3px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+
+  .cartButtons{
+    display: flex;
+    justify-content: space-between;
+   margin-left: 10px;
+   margin-right: 10px;
+   margin-bottom: 10px;
+ 
+  }
+ 
+  

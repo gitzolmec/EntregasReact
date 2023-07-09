@@ -1,31 +1,27 @@
-import { getProductById } from "../../asyncMock";
-import { useAsync } from "../../hooks/useAsync";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemCount from "../ItemCount/ItemCount";
+
 import "./ItemDetailContainer.css";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../service/firebase/firebaseConfig";
+import ItemDetail from "../itemDetails/itemDetail";
+
 const ItemDetailContainer = () => {
+  const [product, setProduct] = useState(null);
   const { itemId } = useParams();
 
-  const { data: product } = useAsync(
-    () => getProductById(Number(itemId)),
-    [itemId]
-  );
+  useEffect(() => {
+    const productRef = doc(db, "Products", itemId);
 
-  console.log(product?.img);
-  return (
-    <div className="card col-md-8 mx-auto bgDetalle">
-      <div className="col-md-8 mb-4 mx-auto">
-        <div className="card col-md-4 mx-auto mt-4">
-          <img src={"../" + product?.img} />
-        </div>
-        <div className="card-body">
-          <h1 className="card-title">{product?.nombre}</h1>
-          <p className="card-text">{product?.Descripcion}</p>
-          <h5 className="card-text">PRECIO: {product?.precio}</h5>
-          <ItemCount />
-        </div>
-      </div>
-    </div>
-  );
+    getDoc(productRef).then((querySnapshot) => {
+      const fields = querySnapshot.data();
+      const productAdapted = { id: querySnapshot.id, ...fields };
+
+      setProduct(productAdapted);
+    });
+  }, [itemId]);
+
+  return <>{product && <ItemDetail {...product} />}</>;
 };
+
 export default ItemDetailContainer;

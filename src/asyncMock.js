@@ -46,7 +46,7 @@ const Products = [
     precio: 25000,
     img: "src/assets/img/bayonetta.png",
     stock: 20,
-    Descripcion:
+    descripcion:
       "Bayonetta es una bruja Umbra moderna y asquerosa que, después de estar dormida en el fondo de un lago durante 500 años, se despierta sin memoria de quién es realmente. Como Bayonetta, castiga a los implacables ejércitos de ángeles que vienen tras ti con dispositivos mortales, evade e hipnotiza con el tiempo de la bruja, y utiliza Wicked Weaves para convocar a los demonios infernales para enviarlos de vuelta a su creador",
   },
   {
@@ -112,7 +112,7 @@ const Products = [
   {
     id: 12,
     nombre: "Call of Duty MW II",
-    categoria: "juegosPS5",
+    categoria: "categoria",
     precio: 35000,
     img: "src/assets/img/callofdutymw3.jpg",
     stock: 20,
